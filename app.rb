@@ -1,6 +1,9 @@
 require 'sqlite3'
 db = SQLite3::Database.new 'test.sqlite'
 
-db.execute "insert into cars (name, price) values ('Jaguar', 777)"
+db.execute "select * from cars" do |car|
+	puts car
+	puts "====="
+end
 
 db.close
